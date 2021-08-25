@@ -1,4 +1,10 @@
-const setupInput = function () {
+// Stores the active TCP connection object.
+
+let connection;
+let givenDirection;
+
+const setupInput = function (conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -13,25 +19,22 @@ const handleUserInput = function (key) {
   if (key === "\u0003") {
     process.exit();
   }
-  if (key === "r") {
-    setInterval(() => {
-      connection.write(`Move: ${inputDirection}`);
-    }, 70);
-  }
+
+  setInterval(() => {
+    connection.write(`Move: ${givenDirection}`);
+  }, 70);
   if (key === "w" || key === "W" || key === "8") {
-    inputDirection = "up";
+    givenDirection = "up";
   }
   if (key === "a" || key === "A" || key === "4") {
-    inputDirection = "left";
+    givenDirection = "left";
   }
   if (key === "s" || key === "S" || key === "5") {
-    inputDirection = "down";
+    givenDirection = "down";
   }
   if (key === "d" || key === "D" || key === "6") {
-    inputDirection = "right";
+    givenDirection = "right";
   }
 };
 
-module.exports = {
-  setupInput,
-}
+module.exports = setupInput;

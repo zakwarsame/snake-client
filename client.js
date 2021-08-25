@@ -12,13 +12,9 @@ const connect = function () {
     console.log(data)
 
   });
-  conn.on("connect", ()=>{
+  conn.on("connect", (data)=>{
     console.log("Connection established.");
     conn.write("Name: lol");
-
-    // setInterval(()=>{
-    //     conn.write("Move: right")
-    // }, 1000)
   });
 
 
@@ -30,4 +26,4 @@ const connect = function () {
 };
 
 
-module.exports = {connect}
+module.exports = connect
