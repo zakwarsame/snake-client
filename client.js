@@ -9,7 +9,10 @@ const connect = function () {
 
   conn.on("data", (data) => {
     // code that does something when the connection is first established
-    console.log("connection has been established:", data)
+    console.log(data)
+  });
+  conn.on("connect", ()=>{
+    conn.write("Name: lol");;
   });
 
   // interpret incoming data as text
