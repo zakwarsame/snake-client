@@ -35,6 +35,9 @@ const handleUserInput = function (key) {
   if (key === "d" || key === "D" || key === "6") {
     givenDirection = "right";
   }
+  if (key === 'z'){
+    connection.write("Say: Safe")
+  }
 };
 
 module.exports = setupInput;
