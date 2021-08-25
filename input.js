@@ -22,7 +22,7 @@ const handleUserInput = function (key) {
 
   setInterval(() => {
     connection.write(`Move: ${givenDirection}`);
-  }, 70);
+  }, 100);
   if (key === "w" || key === "W" || key === "8") {
     givenDirection = "up";
   }
