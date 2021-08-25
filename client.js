@@ -10,10 +10,18 @@ const connect = function () {
   conn.on("data", (data) => {
     // code that does something when the connection is first established
     console.log(data)
+
   });
   conn.on("connect", ()=>{
-    conn.write("Name: lol");;
+    console.log("Connection established.");
+    conn.write("Name: lol");
+
+    // setInterval(()=>{
+    //     conn.write("Move: right")
+    // }, 1000)
   });
+
+
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
